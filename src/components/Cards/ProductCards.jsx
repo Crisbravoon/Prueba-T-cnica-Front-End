@@ -1,22 +1,30 @@
 
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Button, CardActions, Grid, Card } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 
-
-import productos from '../../data/productos.json';
+import productosData from '../../data/productos.json';
 import { CartContext } from '../Cart/CartContext.jsx';
 
-
 const ProductCards = () => {
+
+  const [productos, setProductos] = useState(productosData);
 
   const { addToCart } = useContext(CartContext);
 
   const handleClick = (product) => {
-    addToCart(product);
+
+    if (product.stock > 0) {
+      // Disminuimos el stock y actualizamos los productos.
+      product.stock -= 1
+      setProductos({ ...productos });
+
+      // Agregamos el producto al carrito.
+      addToCart(product);
+    }
   };
 
   return (
@@ -45,12 +53,18 @@ const ProductCards = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-                <Typography variant="h6" size="small" color="text.secondary">
-                  Stock: {product.stock}
-                </Typography>
-                <Button className='mr-8' size="small" onClick={() => handleClick(product)} >
-                  Agregar a Carrito
-                </Button>
+              <Typography variant="h6" size="small" color="text.secondary">
+                Stock: {product.stock}
+              </Typography>
+
+              <Button
+                className='mr-8'
+                size="small"
+                onClick={() => handleClick(product)}
+                disabled={product.stock === 0}
+              >
+                Agregar a Carrito
+              </Button>
             </CardActions>
           </Card>
         </Grid>
@@ -58,6 +72,5 @@ const ProductCards = () => {
     </Grid>
   )
 };
-
 
 export default ProductCards;

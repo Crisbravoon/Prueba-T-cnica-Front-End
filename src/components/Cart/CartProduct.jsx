@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react'
 
-import { Button, CardActions, Grid, Typography } from '@mui/material';
+import { Box, Button, CardActions, Grid, Typography } from '@mui/material';
 import { CartContext } from '../Cart/CartContext.jsx';
 import CreateOrder from './CreateOrder.jsx';
 
@@ -18,11 +18,13 @@ const CartProduct = () => {
     return (
         <div className='cart-producto container'>
             <Grid className='container' >
-                <CardActions>
-                    <Typography variant="h6" color="text.secondary">
-                        Carrito 🛍️
-                    </Typography>
-                </CardActions>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                    }}>
+                    <h1>Carrito 🛍️</h1>
+                </Box>
             </Grid>
             <Grid>
 
