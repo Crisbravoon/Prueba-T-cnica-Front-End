@@ -1,6 +1,6 @@
 import React from 'react'
-import ProductCards from './components/Cards/productCards'
-import CartProduct from './components/Cart/CartProduct'
+import ProductCards from './components/Cards/ProductCards.jsx'
+import CartProduct from './components/Cart/CartProduct.jsx'
 import { Box, Grid } from '@mui/material'
 import './styles.css'
 
