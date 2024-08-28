@@ -22,7 +22,7 @@ const CreateOrder = () => {
                 stock: item.stock || 1,
                 type: item.type,
             })),
-            total: total,
+            total_Pay: total,
             date: new Date().toDateString()
         };
 
@@ -39,10 +39,13 @@ const CreateOrder = () => {
         document.body.removeChild(a);
     };
 
-
     return (
         //Botón para crear el JSON con los productos del carrito , el cual utilizaremos en CartProduct.jsx
-        <Button size="small" onClick={handleCreateOrder}>
+        <Button
+            variant='contained'
+            size="small"
+            onClick={handleCreateOrder}
+            >
             Crear Orden
         </Button>
     )

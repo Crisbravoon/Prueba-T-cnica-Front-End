@@ -53,18 +53,24 @@ const ProductCards = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Typography variant="h6" size="small" color="text.secondary">
-                Stock: {product.stock}
-              </Typography>
-
-              <Button
-                className='mr-8'
-                size="small"
-                onClick={() => handleClick(product)}
-                disabled={product.stock === 0}
-              >
-                Agregar a Carrito
-              </Button>
+              <Grid xs={12} sm={6} md={6} lg={4} xl={4}>
+                <Typography variant="h6"
+                  size="small"
+                  color="text.secondary">
+                  Stock: {product.stock}
+                </Typography>
+              </Grid>
+              <Grid xs={12} sm={6} md={6} lg={4} xl={4}>
+                <Button
+                  variant='contained'
+                  className='mr-8'
+                  size="small"
+                  onClick={() => handleClick(product)}
+                  disabled={product.stock === 0}
+                >
+                  Agregar a Carrito
+                </Button>
+              </Grid>
             </CardActions>
           </Card>
         </Grid>

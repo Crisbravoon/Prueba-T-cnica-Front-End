@@ -6,6 +6,7 @@ export const CartContext = createContext();
 
 //Permite que los componentes hijos puedan utilizar este contexto.
 export const CartProvider = ({ children }) => {
+
   //State para almacenar los productos agregados al carrito.
   const [cartItems, setCartItems] = useState([]);
 
